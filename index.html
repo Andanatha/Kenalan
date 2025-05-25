@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kenalan Yuk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        #tampilTanya {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #nextSection {
+            display: none;
+            margin-top: 40px;
+            text-align: justify;
+            width: 900px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tampilTanya">
+        <h1>Hai kamu, boleh ga kita kenalan?</h1>
+        <div class="button-container">
+            <button id="yesBtn">Boleh</button>
+            <button id="noBtn">Gamau</button>
+        </div>
+    </div>
+
+    <div id="nextSection">
+        <h4>Hai Latischa, kenalin aku Veza dari XI-1. Sebelum nya sorry kalau semisal kenalan nya kaya gini wkwkw. Aku
+            denger denger kamu penasaran sama aku ya? karena aku ngasih coklat waktu itu wkwk, kamu jangan penasaran
+            sama aku, aku cuma pelajar smansa biasa aja kok (cuman suka teknik) wkwk. Oh iya, kamu kalo pensaran sama
+            aku bisa follback ig aku sih wkwk. Nanti kenalan langsung nya nyusul ya wkwk
+        </h4>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById("yesBtn");
+        const noBtn = document.getElementById("noBtn");
+        const nextSection = document.getElementById("nextSection");
+        const tampilTanya = document.getElementById("tampilTanya");
+
+
+        let scale = 1.0;
+
+        noBtn.addEventListener("click", () => {
+            scale -= 0.15;
+            if (scale <= 0.1) {
+                noBtn.style.display = "none";
+            } else {
+                noBtn.style.transform = `scale(${scale})`;
+            }
+        });
+
+        yesBtn.addEventListener("click", () => {
+            nextSection.style.display = "block";
+            tampilTanya.style.display = "none";
+        });
+    </script>
+</body>
+
+</html>
